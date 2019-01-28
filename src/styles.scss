@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html{
+    height: 100%;
+    body{
+        margin: 0;
+        height: 100%;
+    }
+}
+
+.action-container em{
+    cursor: pointer;
+}
+
+.action-container em:hover{
+    transform: scale(1.2);
+    transition: 150ms all ease-in-out;
+}
+
+.img-circle{
+    border-radius: 50%;
+}
+
+.text-capitalize{
+    text-transform: capitalize;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-information{
+    font-size:18px;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.relative{
+    position: relative;
+}
+
+mat-table{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size : 18px;
+    border-radius:5px;
+    box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 0px 23px 1px rgba(0, 0, 0, 0.12);
+    mat-row{
+        mat-cell{
+            em {
+                text-align: center;
+            }            
+            font-size: 18px!important;
+            color: #909090!important;
+        }
+        .text-primary a{
+            color: #314355!important;
+            text-decoration: none;
+        }
+        .text-primary a:hover{
+            color: #314355!important;
+            text-decoration: underline;
+        }
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom-width: 2px!important
+        
+    }
+    mat-row:first-of-type{
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    mat-row:last-of-type{
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}
