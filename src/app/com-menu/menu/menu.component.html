@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar><img src="../../assets/img/logo-zup-white.svg"></mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="todos" routerLinkActive="active" (click)="fecharMenu()">
+        <em class="material-icons">select_all</em>
+        Todos</mat-list-item>
+      <mat-list-item routerLink="atendidos" routerLinkActive="active" (click)="fecharMenu()">
+        <em class="material-icons">done_all</em>
+        Atendidos</mat-list-item>
+      <mat-list-item routerLink="lixeira" routerLinkActive="active" (click)="fecharMenu()">
+        <em class="material-icons">delete_sweep</em>
+        Lixeira</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div fxLayout="row" class="w-100">
+        <div class="relative" fxFlex="80%" fxFlex.lt-md="55%" fxFlexOffset.lt-md="5%">
+          <input class="search-input" placeholder="Buscar" [(ngModel)]="buscas" #busca="ngModel">
+          <em class="material-icons search-icon">search</em>
+        </div>
+        <div class="my-account" fxFlex="15%" fxFlexOffset="10%" fxFlexOffset.lt-md="0" fxFlex.lt-md="40%">
+          <button mat-mini-fab>
+            <em class="material-icons">person</em>
+          </button>
+        </div>
+      </div>
+    </mat-toolbar>
+    <div class="body-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

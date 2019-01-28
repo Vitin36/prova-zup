@@ -1,0 +1,47 @@
+<mat-table #table [dataSource]="getData()" fxLayout="column" fxLayoutWrap *ngIf="getData().length > 0">
+
+    <ng-container matColumnDef="imagem">
+        <mat-cell *matCellDef="let element" fxFlex="10%" fxFlex.lt-md="33.333%">
+            <a [routerLink]="['../../usuario/' + element.id.value]">
+                <img class="img-circle" [src]="element.picture.thumbnail">
+            </a>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+        <mat-cell *matCellDef="let element" fxFlex="15%" fxFlex.lt-md="33.333%" class="text-primary text-capitalize">
+            <a [routerLink]="['../../usuario/' + element.id.value]">
+                {{element.name.first}}
+            </a>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <mat-cell *matCellDef="let element" fxFlex="30%" fxHide.lt-md> {{element.email}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="telefone">
+        <mat-cell *matCellDef="let element" fxFlex="15%" fxHide.lt-md> {{element.cell}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="localizacao">
+        <mat-cell *matCellDef="let element" fxFlex="15%" fxHide.lt-md class="text-capitalize">
+            {{element.location.city}} - {{element.location.state}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+        <mat-cell *matCellDef="let element" fxLayout="row" class="action-container" fxFlex="15%" fxFlex.lt-md="33.333%">
+            <em [class.active]="element.estado === 'LIXEIRA'" fxFlex="33.333%" class="material-icons" (click)="lixeira(element)">delete</em>
+            <em [class.active]="element.estado === 'TODOS'" fxFlex="33.333%" class="material-icons" (click)="todos(element)">select_all</em>
+            <em [class.active]="element.estado === 'ATENDIDO'" fxFlex="33.333%" class="material-icons" (click)="atendidos(element)">done</em>
+        </mat-cell>
+    </ng-container>
+
+    <mat-row *matRowDef="let row; columns: visiveis;"></mat-row>
+
+</mat-table>
+
+<mat-card *ngIf="getData().length === 0" class="text-center">
+    <mat-card-content><span class="text-information">Nenhum usuário encontrado</span></mat-card-content>
+</mat-card>

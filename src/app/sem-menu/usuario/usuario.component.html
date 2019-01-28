@@ -1,0 +1,51 @@
+<div class="center-aligner">
+    <button mat-mini-fab (click)="back()">
+        <em  class="material-icons">arrow_back_ios</em>
+    </button>
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <mat-card fxLayout="column">
+        <mat-card-header fxFlex="100%"></mat-card-header>
+        <div class="img-aligner">
+            <img [src]="data?.picture.large" class="img-circle" *ngIf="data">
+        </div>
+        <mat-card-content fxFlex="100%" fxFlex="column">
+            <div class="info-show" fxLayout="column" *ngIf="show === 'name'">
+                <p>Hi, My name is</p>
+                <h3 class="text-capitalize">{{data?.name.first}} {{data?.name.last}}</h3>
+            </div>
+            <div class="info-show" fxFlexAlign="center" fxLayout="column" *ngIf="show === 'email'">
+                <p>My email is</p>
+                <h3 class="text-capitalize">{{data?.email}}</h3>
+            </div>
+            <div class="info-show" fxFlexAlign="center" fxLayout="column" *ngIf="show === 'birthday'">
+                <p>My birthday is</p>
+                <h3 class="text-capitalize">{{data?.dob.date | date :'shortDate'}}</h3>
+            </div>
+            <div class="info-show" fxFlexAlign="center" fxLayout="column" *ngIf="show === 'address'">
+                <p>My address is</p>
+                <h3 class="text-capitalize">{{data?.location.postcode}} {{data?.location.address}} {{data?.location.city}} {{data.location.state}}</h3>
+            </div>
+            <div class="info-show" fxFlexAlign="center" fxLayout="column" *ngIf="show === 'phone'">
+                <p>My phone is</p>
+                <h3 class="text-capitalize">{{data?.phone}}</h3>
+            </div>
+            <div class="info-show" fxFlexAlign="center" fxLayout="column" *ngIf="show === 'password'">
+                <p>My password is</p>
+                <h3 class="text-capitalize">{{data?.login.password}}</h3>
+            </div>
+            <div fxLayout="row"  fxFlexAlign="end">
+                <em (mouseenter)="setShow('name')" (click)="setShow('name')" [class.active]="show === 'name'" class="material-icons" fxFlex="16.66%">person_outline</em>
+                <em (mouseenter)="setShow('email')" (click)="setShow('email')" [class.active]="show === 'email'" class="material-icons" fxFlex="16.66%">mail_outline</em>
+                <em (mouseenter)="setShow('birthday')" (click)="setShow('birthday')" [class.active]="show === 'birthday'" class="material-icons" fxFlex="16.66%">date_range</em>
+                <em (mouseenter)="setShow('address')" (click)="setShow('address')" [class.active]="show === 'address'" class="material-icons" fxFlex="16.66%">location_on</em>
+                <em (mouseenter)="setShow('phone')" (click)="setShow('phone')" [class.active]="show === 'phone'" class="material-icons" fxFlex="16.66%">phone_in_talk</em>
+                <em (mouseenter)="setShow('password')" (click)="setShow('password')" [class.active]="show === 'password'" class="material-icons" fxFlex="16.66%">vpn_key</em>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="background" fxLayout="column">
+    <div class="bg-1" fxFlex="50%"></div>
+    <div class="bg-2" fxFlex="50%"></div>
+</div>

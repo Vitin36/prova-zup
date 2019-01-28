@@ -1,0 +1,129 @@
+
+$imgMetade: 68px;
+
+.center-aligner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+.bg-1{
+    position: fixed;
+    top: 0;
+    height: 50vh;
+    width: 100vw;
+    background: #2c3e50;
+    z-index: 1;
+}
+.bg-2{
+    position: fixed;
+    top: 50%;
+    height: 50vh;
+    width: 100vw;
+    z-index: 1;
+    background: #f4f4f4;
+}
+
+.mat-mini-fab{
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background: #ffffff;
+    color: #000;
+    em{
+        font-size: 15px;
+        margin-left: 3px;
+    }
+    z-index: 2;
+}
+
+mat-card{
+    z-index: 2;
+    max-width: 50%;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px -5px rgba(0,0,0,.2), 0 5px 10px 2px rgba(0,0,0,.14), 0 1px 15px 5px rgba(0,0,0,.12);
+    div.img-aligner{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(150px - #{$imgMetade});
+        img{
+            border: 1px solid rgba(0,0,0,0.42);
+            padding: 3px;
+            background: #ffffff;
+        }
+    }
+    .info-show{
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    .info-show p{
+        margin: 0;
+    }
+    .info-show h3{
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    mat-card-header{
+        border-radius: 5px;
+        height: 150px;
+        background: #f4f4f4;
+        border-bottom: 2px solid #dfdfdf;
+    }
+    mat-card-content{
+        border-radius: 5px;
+        color:#87868a;
+        min-height: calc(200px + #{$imgMetade} );
+        margin-top: $imgMetade!important;
+        min-height: 300px;
+        background: #ffffff;
+        margin: 0;
+        padding: 20px;
+        p{
+            font-size: 20px;
+        }
+        h3{
+            font-size:25px;
+            color:#4e4e4e;
+        }
+        em{
+            font-size : 35px;
+            cursor: pointer;
+        }
+        em.active{
+            color : #cad45d;
+        }
+    }
+}
+
+@media(max-width:767px){
+    mat-card{
+        max-width: 100%;
+        padding: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        div.img-aligner{
+            top: calc(100px - #{$imgMetade});
+        }
+        mat-card-header{
+            height: 100px;
+        }
+        mat-card-content{
+            min-height: calc(150px + #{$imgMetade} );
+            margin-top: $imgMetade!important;
+            p{
+                font-size: 15px;
+            }
+            h3{
+                font-size:20px;
+                color:#4e4e4e;
+            }
+        }
+    }
+}
