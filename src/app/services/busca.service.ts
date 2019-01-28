@@ -21,21 +21,11 @@ export class BuscaService {
 
   setBusca(string: string) {
     this.busca = string;
+    this.buscaChanges.emit(this.busca);
   }
 
-  filterData(data: Data[]) {
-    let retorno = new Array<Data>();
-    data.filter(
-      ((x) => {
-        if (
-          new RegExp(this.busca, 'gi').test(x.name.first) ||
-          new RegExp(this.busca, 'gi').test(x.name.last) ||
-          new RegExp(this.busca, 'gi').test(x.email)
-        )
-          retorno.push(x);
-      })
-    );
-    return retorno;
+  getBusca() : string{
+    return this.busca;
   }
 
 }

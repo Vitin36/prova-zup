@@ -1,4 +1,4 @@
-<mat-table #table [dataSource]="getData()" fxLayout="column" fxLayoutWrap *ngIf="getData().length > 0">
+<mat-table #table [dataSource]="dataShow | pagination:page_size:page_number" fxLayout="column" fxLayoutWrap *ngIf="dataShow.length > 0">
 
     <ng-container matColumnDef="imagem">
         <mat-cell *matCellDef="let element" fxFlex="10%" fxFlex.lt-md="33.333%">
@@ -41,6 +41,11 @@
 
 </mat-table>
 
-<mat-card *ngIf="getData().length === 0" class="text-center">
+<mat-paginator #paginator [length]="dataShow.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" 
+(page)="paginate($event)" *ngIf="dataShow.length > 0">
+    
+</mat-paginator>
+
+<mat-card *ngIf="dataShow.length === 0" class="text-center">
   <mat-card-content><span class="text-information">Nenhum usuário encontrado</span></mat-card-content>
 </mat-card>

@@ -9,6 +9,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatCardModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../pipes/search.pipe';
+import { PaginationPipe } from '../pipes/pagination.pipe';
 
 const routes: Routes = [
   {
@@ -29,7 +31,9 @@ const routes: Routes = [
     MenuComponent,
     TodosComponent,
     AtendidosComponent,
-    LixeiraComponent
+    LixeiraComponent,
+    SearchPipe,
+    PaginationPipe
   ],
   imports: [
     CommonModule,
@@ -49,6 +53,9 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers : [
+    SearchPipe
   ]
 })
 export class ComMenuModule { }
